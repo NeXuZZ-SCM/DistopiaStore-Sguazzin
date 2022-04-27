@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    height: 4rem;
+}
+
+li{ margin-left: 3rem; }
+
+.logo{ margin-left: 3rem; }
+
+.menuItems{
+    display: flex;
+    list-style: none;
+    margin-right: 3rem;
+}

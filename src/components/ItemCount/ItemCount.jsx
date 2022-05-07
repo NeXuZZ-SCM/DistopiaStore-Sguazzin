@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 export default function ItemCount ({stock, initial, onAdd}){
     const [count, setCount] = React.useState(initial);
 
-    //#region Componentes de Presentacion
+    //#region Componentes de Presentacion 
     const StockButton = ({handleOnClick, text}) => {
         return (
             <Button variant="outline-warning" onClick={handleOnClick}>
@@ -33,7 +33,6 @@ export default function ItemCount ({stock, initial, onAdd}){
         justifyContent: 'space-between',
         alignItems: 'center',
       };
-
     const AddtoCart = {
         width: '100%',
     };
@@ -53,7 +52,6 @@ export default function ItemCount ({stock, initial, onAdd}){
 //#endregion
 
     return (
-        <>
         <div style={Container}>
             <div style={AddCountReduce}>
                 <StockButton text="-" handleOnClick={onDecreaceBtn}/>
@@ -62,6 +60,5 @@ export default function ItemCount ({stock, initial, onAdd}){
             </div>
             <AddButton />
         </div>
-        </>
     )
 }

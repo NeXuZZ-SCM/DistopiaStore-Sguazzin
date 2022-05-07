@@ -10,7 +10,7 @@ function App() {
     <div className="App">
 
       <NavBar />
-      <ItemListContainer greeting={["Manzana", "Banana"]}/>
+      <ItemListContainer greeting={"Todos nuestros productos"}/>
 
 
       <ToastContainer />

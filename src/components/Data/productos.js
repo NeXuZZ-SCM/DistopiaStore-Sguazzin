@@ -4,6 +4,7 @@ export const products = [
             "title": "Producto1",
             "stock": 3,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_782674-MLA49003026023_022022-AB.webp",
         },
         {
@@ -11,6 +12,7 @@ export const products = [
             "title": "Producto2",
             "stock": 6,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_823145-MLA45595205514_042021-AB.webp",
         },
         {
@@ -18,6 +20,7 @@ export const products = [
             "title": "Producto3",
             "stock": 7,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_726133-MLA41451588254_042020-AB.webp",
         },
         {
@@ -25,6 +28,7 @@ export const products = [
             "title": "Producto4",
             "stock": 6,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_602906-MLA44729445296_012021-AB.webp",
         },
         {
@@ -32,6 +36,7 @@ export const products = [
             "title": "Producto5",
             "stock": 12,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_845215-MLA49498182902_032022-AB.webp",
         },
         {
@@ -39,6 +44,7 @@ export const products = [
             "title": "Producto6",
             "stock": 7,
             "price": "23000",
+            "detail": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem",
             "image": "images/D_Q_NP_848455-MLA44320135732_122020-AB.webp",
         },
     ]

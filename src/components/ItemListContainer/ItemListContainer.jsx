@@ -2,8 +2,11 @@ import React from 'react'
 import ItemList from "../ItemList/ItemList";
 import { products } from "../Data/productos";
 import { Spinner } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
-export default function ItemListContainer ({greeting}){
+export default function ItemListContainer ({greeting, categoryId}){
+
+    const [greetingMod, setgreetingMod] = React.useState(greeting);
 
     const [animation, setAnimation] = React.useState("grow");
 
@@ -25,15 +28,35 @@ export default function ItemListContainer ({greeting}){
 
         apiPromise.then((result) => {
             setAnimation("disabled");
-            setProductsList(result);
+            if(categoryId){
+                switch(categoryId) {
+                    case 1:
+                         setgreetingMod('Seguridad');
+                         break;
+                    case 2:
+                         setgreetingMod('Entretenimiento');
+                         break;
+                    case 3:
+                         setgreetingMod('Outfit');
+                         break;
+                    default:
+                         setgreetingMod('Aún sin categorizar');
+                         break;
+                  }
+                setProductsList(result.filter(item => item.category === categoryId));
+               
+            }else{
+                setgreetingMod('Todos nuestros productos');
+                setProductsList(result);
+            }
         }).catch((err)=>{
             console.log(err);
         })
-    }, [])
+    }, [categoryId])
 
     return (
         <>
-            {greeting}
+            <Alert variant='secondary'>{greetingMod}</Alert>
             <br/>
             <div className="spinner" style={spinnerCenter}>
                 <Spinner animation={animation} role="status" >

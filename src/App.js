@@ -1,18 +1,27 @@
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Category from "./views/Category/Category";
+import Item from "./views/Item/Item";
 
 function App() {
   return (
     <div className="App">
+      
 
+      <BrowserRouter>
       <NavBar />
-      <ItemDetailContainer />
-      <ItemListContainer greeting={"Todos nuestros productos"}/>
-
+        <Routes>
+          <Route exact path="/" element={<Category greeting={"Todos nuestros productos"}/>} />
+          <Route exact path="/category/:categoryId" element={<Category/>} />
+          <Route exact path="/item/:itemId" element={<Item/>} />
+        </Routes>
+      </BrowserRouter>
 
       <ToastContainer />
     </div>

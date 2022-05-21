@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Category from "./views/Category/Category";
 import Item from "./views/Item/Item";
+import Cart from "./views/Cart/Cart";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route exact path="/" element={<Category greeting={"Todos nuestros productos"}/>} />
           <Route exact path="/category/:categoryId" element={<Category/>} />
           <Route exact path="/item/:itemId" element={<Item/>} />
+          <Route exact path="/cart" element={<Cart/>} />
         </Routes>
       </BrowserRouter>
 

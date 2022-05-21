@@ -23,6 +23,11 @@ export default function ItemCount ({stock, initial, onAdd}){
     //#endregion Componentes de Presentacion
 
     //#region Style Buttons
+    const master = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
     const Container = {
         width: '15rem',
         border: '1px solid #E2E2E2'
@@ -52,13 +57,15 @@ export default function ItemCount ({stock, initial, onAdd}){
 //#endregion
 
     return (
-        <div style={Container}>
-            <div style={AddCountReduce}>
-                <StockButton text="-" handleOnClick={onDecreaceBtn}/>
-                {count}
-                <StockButton text="+" handleOnClick={onAonAddBtn}/>
+        <div style={master}>
+            <div style={Container}>
+                <div style={AddCountReduce}>
+                    <StockButton text="-" handleOnClick={onDecreaceBtn}/>
+                    {count}
+                    <StockButton text="+" handleOnClick={onAonAddBtn}/>
+                </div>
+                <AddButton />
             </div>
-            <AddButton />
         </div>
     )
 }

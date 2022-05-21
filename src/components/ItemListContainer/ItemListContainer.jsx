@@ -22,9 +22,8 @@ export default function ItemListContainer ({greeting, categoryId}){
         const apiPromise = new Promise((resolve, reject) => {
             setTimeout(()=> {
                 resolve(products);
-            }, 2000)
+            }, 1000)
         })
-
 
         apiPromise.then((result) => {
             setAnimation("disabled");

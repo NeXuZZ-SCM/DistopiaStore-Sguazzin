@@ -7,7 +7,7 @@ export default function Item(){
     const {itemId} = useParams();
     
   return (
-      <>
+     <>
     <div>Item</div>
     <ItemDetailContainer itemId={+itemId} />
     </>

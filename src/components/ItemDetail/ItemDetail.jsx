@@ -42,7 +42,7 @@ export default function ItemDetail({item}){
 // };
   const onAddCart = (messege, {count}) => {
     setCountItem({countItem} + {count});
-    //setAction("carrito");
+    setAction("carrito");
     showToastMessage(messege, {count});
     addToCart(item, count);
 };

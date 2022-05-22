@@ -1,5 +1,6 @@
 //#region imports
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../CustomProvider/CustomProvider';
 import Image from 'react-bootstrap/Image'
 import ItemCount from "../ItemCount/ItemCount";
 import { toast } from "react-toastify";
@@ -13,6 +14,9 @@ export default function ItemDetail({item}){
   const [countItem, setCountItem] = React.useState(1);
   const [action, setAction] = React.useState("comprar");
   const navigate = useNavigate();
+
+  const {addToCart} = useContext(CartContext);
+
 
   //#region estilos
   const divContenedor = {
@@ -31,11 +35,18 @@ export default function ItemDetail({item}){
 };
   //#endregion
 
+//   const onAddCount = (messege, {count}) => {
+//     setCountItem({countItem} + {count});
+//     setAction("carrito");
+//     showToastMessage(messege, {count});
+// };
   const onAddCart = (messege, {count}) => {
     setCountItem({countItem} + {count});
-    setAction("carrito");
+    //setAction("carrito");
     showToastMessage(messege, {count});
+    addToCart(item, count);
 };
+
 
   //#region Alert TOAST
   const showToastMessage = (messege, {count}) => {
@@ -48,14 +59,14 @@ export default function ItemDetail({item}){
       draggable: true,
       progress: undefined,
       });
-};
+  };
 
   //#endregion
 /* -------------------------------------------------------------------------- */
 /*                                 Condicional                                */
 /* -------------------------------------------------------------------------- */
 const AddToCart = () => {
-  return <ItemCount stock={item.stock} initial={1} onAdd={onAddCart}/>
+  return <ItemCount stock={item.stock} initial={1} onAdd={onAddCart}/> //onAddCart  onAdd={() => addToCart(item)}
 }
 const GoToCart = () => {
   return <div style={Carrito}><Button variant="warning" onClick={() => navigate(`/cart`)}>Terminar mi compra</Button></div>

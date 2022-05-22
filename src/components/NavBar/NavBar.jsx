@@ -1,15 +1,17 @@
 //#region Imports
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../CustomProvider/CustomProvider';
+
 //#endregion
 
 export default function NavBar() {
-
+  const {carrito} = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -31,7 +33,7 @@ export default function NavBar() {
           { /* ------------------------------ SegundoSubMenu ----------------------------- */}
           <Nav>
             <Nav.Link href="#Carrito">
-              <CartWidget Count={3}/>
+              <CartWidget Count={carrito}/>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

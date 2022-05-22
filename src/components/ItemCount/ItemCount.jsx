@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
 
-
 export default function ItemCount ({stock, initial, onAdd}){
     const [count, setCount] = React.useState(initial);
 
@@ -13,9 +12,9 @@ export default function ItemCount ({stock, initial, onAdd}){
             </Button>
         )
     }
-    const AddButton = () =>{
+    const AddButton = () =>{//{count}
         return (
-            <Button variant="warning" style={AddtoCart} onClick={ () => onAdd("Agregamos", {count})}>
+            <Button variant="warning" style={AddtoCart} onClick={ () => onAdd("Agregando ", {count})} > 
             Añadir al carrito
             </Button>
         )
@@ -44,10 +43,10 @@ export default function ItemCount ({stock, initial, onAdd}){
     //#endregion
 
     //#region Functions Add Decreace
-    const onAonAddBtn = () =>{
+    const onAddBtn = () =>{
         if(count < stock){
             setCount(count + 1);
-         }
+        }
     }
     const onDecreaceBtn = () =>{
         if(count > 1){
@@ -62,7 +61,7 @@ export default function ItemCount ({stock, initial, onAdd}){
                 <div style={AddCountReduce}>
                     <StockButton text="-" handleOnClick={onDecreaceBtn}/>
                     {count}
-                    <StockButton text="+" handleOnClick={onAonAddBtn}/>
+                    <StockButton text="+" handleOnClick={onAddBtn}/>
                 </div>
                 <AddButton />
             </div>

@@ -9,23 +9,22 @@ import {
 import Category from "./views/Category/Category";
 import Item from "./views/Item/Item";
 import Cart from "./views/Cart/Cart";
-
+import {CartCustomProvider} from "./components/CustomProvider/CustomProvider";
 
 function App() {
   return (
     <div className="App">
-      
-
       <BrowserRouter>
-      <NavBar />
-        <Routes>
-          <Route exact path="/" element={<Category greeting={"Todos nuestros productos"}/>} />
-          <Route exact path="/category/:categoryId" element={<Category/>} />
-          <Route exact path="/item/:itemId" element={<Item/>} />
-          <Route exact path="/cart" element={<Cart/>} />
-        </Routes>
+        <CartCustomProvider>
+          <NavBar />
+          <Routes>
+            <Route exact path="/" element={<Category greeting={"Todos nuestros productos"}/>} />
+            <Route exact path="/category/:categoryId" element={<Category/>} />
+            <Route exact path="/item/:itemId" element={<Item/>} />
+            <Route exact path="/cart" element={<Cart/>} />
+          </Routes>
+        </CartCustomProvider>
       </BrowserRouter>
-
       <ToastContainer />
     </div>
   );

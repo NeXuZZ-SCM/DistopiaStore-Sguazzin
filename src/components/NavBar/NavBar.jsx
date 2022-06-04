@@ -33,7 +33,7 @@ export default function NavBar() {
           { /* ------------------------------ SegundoSubMenu ----------------------------- */}
           <Nav>
             <Nav.Link href="#Carrito">
-              <CartWidget Count={carrito}/>
+              <CartWidget/>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

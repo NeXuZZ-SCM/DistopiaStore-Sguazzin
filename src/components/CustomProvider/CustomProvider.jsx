@@ -7,20 +7,24 @@ const Provider = CartContext.Provider;
 
 const CartCustomProvider = ({children}) => {
     const [carrito, setCarrito] = React.useState([]);
-    console.log(carrito);
+    const [totalPrice, setTotalPrice] = React.useState(0);
+    const [totalItems, setTotalItems] = React.useState(0);
     //agrego items al carrito addItem(item, quantity)
     const addToCart = (item, quantity) =>{
-        console.log(quantity);
         if(isInCart(item.id)){
             const newCart = carrito.map(cartItem => {
                 if(cartItem.id === item.id){
                     cartItem.quantity += quantity;
                 }
+                
                 return cartItem;
             })
             setCarrito(newCart);
+            setTotalPrice(totalPrice + (item.price * quantity));
         }else{
             setCarrito([...carrito, {...item, quantity: quantity}]);
+            setTotalPrice(totalPrice + (item.price * quantity));
+            setTotalItems(totalItems + quantity);
         }
     }
     //elimino items del carrito removeItems(itemId)
@@ -28,15 +32,20 @@ const CartCustomProvider = ({children}) => {
         if(isInCart(itemId)){
             const newCart = carrito.map(cartItem => {
                 if(cartItem.id === itemId){
-                    if(cartItem.quantity <= 1){
-                        carrito.filter((cartItem) => cartItem.id !== itemId);
+                    if(cartItem.quantity === 1){
+                        const newList = carrito.filter((cartItem) => cartItem.id !== itemId);
+                        setCarrito(newList);
+                        setTotalPrice(totalPrice - cartItem.price);
+                        setTotalItems(totalItems - 1);
                     }else{
                         cartItem.quantity--;
+                        setTotalPrice(totalPrice - cartItem.price);
+                        setTotalItems(totalItems - 1);
                     }
                 }
                 return cartItem;
             })
-            setCarrito(newCart);
+            //setCarrito(newCart);
         }
 
         // const newCart = carrito.filter((cartItem) => cartItem.id !== itemId);
@@ -58,6 +67,8 @@ const CartCustomProvider = ({children}) => {
             isInCart,
 
             carrito,
+            totalPrice,
+            totalItems,
         }}>{children}</Provider>
     )
 }

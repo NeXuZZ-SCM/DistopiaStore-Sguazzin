@@ -1,6 +1,6 @@
 //#region imports
 import React, { useContext } from 'react'
-import { CartContext } from '../CustomProvider/CustomProvider';
+import { CartContext } from '../CartCustomProvider/CartCustomProvider';
 import Image from 'react-bootstrap/Image'
 import ItemCount from "../ItemCount/ItemCount";
 import { toast } from "react-toastify";

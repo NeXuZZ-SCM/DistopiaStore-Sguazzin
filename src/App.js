@@ -9,7 +9,7 @@ import {
 import Category from "./views/Category/Category";
 import Item from "./views/Item/Item";
 import Cart from "./views/Cart/Cart";
-import {CartCustomProvider} from "./components/CustomProvider/CustomProvider";
+import {CartCustomProvider} from "./components/CartCustomProvider/CartCustomProvider";
 
 function App() {
   return (

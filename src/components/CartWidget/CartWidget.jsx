@@ -1,5 +1,5 @@
 import React from "react"
-import { CartContext } from "../CustomProvider/CustomProvider"
+import { CartContext } from "../CartCustomProvider/CartCustomProvider"
 
 export default function CartWidget(){
     const {totalItems } = React.useContext(CartContext);

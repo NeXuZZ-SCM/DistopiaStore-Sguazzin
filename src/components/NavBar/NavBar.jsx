@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../CustomProvider/CustomProvider';
+import { CartContext } from '../CartCustomProvider/CartCustomProvider';
 
 //#endregion
 
@@ -32,7 +32,7 @@ export default function NavBar() {
           </Nav>
           { /* ------------------------------ SegundoSubMenu ----------------------------- */}
           <Nav>
-            <Nav.Link href="#Carrito">
+            <Nav.Link onClick={() => navigate(`/cart`)}>
               <CartWidget/>
             </Nav.Link>
           </Nav>

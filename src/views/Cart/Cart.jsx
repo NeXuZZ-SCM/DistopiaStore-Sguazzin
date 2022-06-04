@@ -1,5 +1,5 @@
 import React from 'react'
-import { CartContext } from "../../components/CustomProvider/CustomProvider"
+import { CartContext } from "../../components/CartCustomProvider/CartCustomProvider"
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom';
 

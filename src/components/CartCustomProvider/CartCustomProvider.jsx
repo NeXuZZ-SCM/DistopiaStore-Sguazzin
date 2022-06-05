@@ -21,6 +21,7 @@ const CartCustomProvider = ({children}) => {
             })
             setCarrito(newCart);
             setTotalPrice(totalPrice + (item.price * quantity));
+            setTotalItems(totalItems + quantity);
         }else{
             setCarrito([...carrito, {...item, quantity: quantity}]);
             setTotalPrice(totalPrice + (item.price * quantity));

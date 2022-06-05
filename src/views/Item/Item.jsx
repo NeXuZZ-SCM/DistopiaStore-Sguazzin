@@ -9,7 +9,7 @@ export default function Item(){
   return (
      <>
     <div>Item</div>
-    <ItemDetailContainer itemId={+itemId} />
+    <ItemDetailContainer itemId={itemId} />
     </>
   )
 }

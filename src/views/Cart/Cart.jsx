@@ -38,6 +38,7 @@ export default function Cart(){
                     ]//Matriz usada para retornar varias lineas.
                   }
               </div>
+              <Button variant="warning"  onClick={() => navigate(`/checkout`)}>FINALIZAR COMPRA</Button>
       </div>
     </>
   )

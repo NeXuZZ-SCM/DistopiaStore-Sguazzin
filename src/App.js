@@ -10,6 +10,7 @@ import Category from "./views/Category/Category";
 import Item from "./views/Item/Item";
 import Cart from "./views/Cart/Cart";
 import {CartCustomProvider} from "./components/CartCustomProvider/CartCustomProvider";
+import Checkout from "./views/Checkout/Checkout";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/category/:categoryId" element={<Category/>} />
             <Route exact path="/item/:itemId" element={<Item/>} />
             <Route exact path="/cart" element={<Cart/>} />
+            <Route exact path="/checkout" element={<Checkout/>} />
           </Routes>
         </CartCustomProvider>
       </BrowserRouter>

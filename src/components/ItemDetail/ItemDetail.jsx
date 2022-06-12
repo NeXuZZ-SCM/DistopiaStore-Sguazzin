@@ -1,10 +1,9 @@
 //#region imports
 import React, { useContext } from 'react'
-import { CartContext } from '../CartCustomProvider/CartCustomProvider';
-import Image from 'react-bootstrap/Image'
+import { CartContext } from '../../context/CartContext'
 import ItemCount from "../ItemCount/ItemCount";
 import { toast } from "react-toastify";
-import Button from 'react-bootstrap/Button'
+import {Button, Image} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 //#endregion 
 
@@ -14,7 +13,6 @@ export default function ItemDetail({item}){
   const [countItem, setCountItem] = React.useState(1);
   const [action, setAction] = React.useState("comprar");
   const navigate = useNavigate();
-
   const {addToCart} = useContext(CartContext);
 
 
@@ -26,20 +24,21 @@ export default function ItemDetail({item}){
   };
   const divDetail = {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   };
   const Carrito = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
 };
+const contenedorButtons = {
+  width: '50%',
+  display: 'flex',
+  justifyContent: 'space-around'
+}
   //#endregion
 
-//   const onAddCount = (messege, {count}) => {
-//     setCountItem({countItem} + {count});
-//     setAction("carrito");
-//     showToastMessage(messege, {count});
-// };
+
   const onAddCart = (messege, {count}) => {
     setCountItem({countItem} + {count});
     setAction("carrito");
@@ -69,7 +68,12 @@ const AddToCart = () => {
   return <ItemCount stock={item.stock} initial={1} onAdd={onAddCart}/> //onAddCart  onAdd={() => addToCart(item)}
 }
 const GoToCart = () => {
-  return <div style={Carrito}><Button variant="warning" onClick={() => navigate(`/cart`)}>Terminar mi compra</Button></div>
+  return <div style={Carrito}>
+    <div style={contenedorButtons} >
+      <Button variant="outline-warning" onClick={() => navigate(`/`)}>Volver a la tienda</Button>
+      <Button variant="warning" onClick={() => navigate(`/cart`)}>Terminar mi compra</Button>
+    </div>
+  </div>
 }
 
 const ConditionalButton = action === "comprar" ? AddToCart : GoToCart
@@ -77,17 +81,19 @@ const ConditionalButton = action === "comprar" ? AddToCart : GoToCart
 
   return (
     <>
-    <div style={divContenedor}>
+    <div style={divContenedor} >
       <div>
-        <Image src={`../${item.image}`} />
+        <Image src={`../${item.image}`} style={{width:'200px'}} />
       </div>
-      <div>
-        <h1>{item.title}</h1>
-        <h3>${item.price}</h3>
+      <div style={{width:'400px'}} >
+        <h3>{item.title}</h3>
+        <h4>${item.price}</h4>
       </div>
     </div>
     <div style={divDetail}>{item.detail}</div>
-    <ConditionalButton></ConditionalButton>
+    <br/>
+    <ConditionalButton/>
+    <div style={{height:'40vh'}}/>
     </>
   )
 }

@@ -1,9 +1,7 @@
 import React, { createContext } from "react";
 
 const CartContext = createContext();
-
 const Provider = CartContext.Provider;
-
 
 const CartCustomProvider = ({children}) => {
     const [carrito, setCarrito] = React.useState([]);
@@ -29,9 +27,10 @@ const CartCustomProvider = ({children}) => {
         }
     }
     //elimino items del carrito removeItems(itemId)
-    const removeItem= (itemId) =>{ //podria ser item y en !== item.id
+    const removeItem= (itemId) =>{
         if(isInCart(itemId)){
-            const newCart = carrito.map(cartItem => {
+            carrito.map(cartItem => {
+                
                 if(cartItem.id === itemId){
                     if(cartItem.quantity === 1){
                         const newList = carrito.filter((cartItem) => cartItem.id !== itemId);
@@ -45,16 +44,16 @@ const CartCustomProvider = ({children}) => {
                     }
                 }
                 return cartItem;
+                
             })
-            //setCarrito(newCart);
         }
 
-        // const newCart = carrito.filter((cartItem) => cartItem.id !== itemId);
-        // setCarrito(newCart);
     }
     //elimino todos los items deleteAll clear()
     const removeAll= () =>{
         setCarrito([]);
+        setTotalItems(0);
+        setTotalPrice(0);
     }
     //verifico que exista el item isInCart:(id)
     const isInCart= (itemId) =>{

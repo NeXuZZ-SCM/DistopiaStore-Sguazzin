@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetailContainer from '../../components/ItemDetailContainer/ItemDetailContainer';
+import { Alert } from 'react-bootstrap';
 
 export default function Item(){
 
@@ -8,7 +9,7 @@ export default function Item(){
     
   return (
      <>
-    <div>Item</div>
+    <Alert variant='secondary'>Detalle de producto</Alert>
     <ItemDetailContainer itemId={itemId} />
     </>
   )

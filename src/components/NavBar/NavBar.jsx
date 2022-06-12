@@ -1,17 +1,12 @@
-//#region Imports
-import React, { useContext } from 'react';
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../CartCustomProvider/CartCustomProvider';
-
-//#endregion
 
 export default function NavBar() {
-  const {carrito} = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
@@ -22,9 +17,9 @@ export default function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           { /* ------------------------------ PrimerSubMenu ----------------------------- */}
           <Nav className="me-auto">
-            <NavDropdown title="Productos" id="collasible-nav-dropdown">
+            <NavDropdown title="Productos de asistencia" id="collasible-nav-dropdown">
               <NavDropdown.Item onClick={() => navigate(`/category/1`)}>Seguridad</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => navigate(`/category/2`)}>Entretenimiento</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate(`/category/2`)}>Limpieza</NavDropdown.Item>
               <NavDropdown.Item onClick={() => navigate(`/category/3`)}>Outfit</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>Proximamente</NavDropdown.Item>

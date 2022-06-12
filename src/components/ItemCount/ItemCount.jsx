@@ -12,7 +12,7 @@ export default function ItemCount ({stock, initial, onAdd}){
             </Button>
         )
     }
-    const AddButton = () =>{//{count}
+    const AddButton = () =>{
         return (
             <Button variant="warning" style={AddtoCart} onClick={ () => onAdd("Agregando ", {count})} > 
             Añadir al carrito

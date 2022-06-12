@@ -1,5 +1,5 @@
 import React from "react"
-import { CartContext } from "../CartCustomProvider/CartCustomProvider"
+import { CartContext } from '../../context/CartContext'
 
 export default function CartWidget(){
     const {totalItems } = React.useContext(CartContext);
@@ -7,7 +7,8 @@ export default function CartWidget(){
     return (
         <>
         <i className="bi bi-bag" />
-        {totalItems === 0 ? 
+        {totalItems === 0 
+                  ? 
                     ""
                   : 
                   totalItems
